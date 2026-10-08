@@ -1,6 +1,6 @@
 {
   "name": "mcp-seo-auditor",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Read-only static SEO audits and bounded crawling for AI agents over MCP",
   "mcpName": "io.github.petrovicistefan/mcp-seo-auditor",
   "type": "module",
