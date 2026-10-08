@@ -38,8 +38,7 @@ Generic MCP configuration:
 Alternatively install Python package with `pip install .` and run
 `mcp-seo-auditor`. Build-time setuptools is needed; runtime uses only stdlib.
 
-After the owner publishes the npm package, configuration can use
-`npx -y mcp-seo-auditor`. Availability/name ownership has not been verified.
+Configuration can use `npx -y mcp-seo-auditor`.
 
 ## Tools
 
