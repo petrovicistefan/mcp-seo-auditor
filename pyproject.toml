@@ -14,6 +14,7 @@ dependencies = []
 
 [project.scripts]
 mcp-seo-auditor = "mcp_seo_auditor.server:main"
+mcp-seo-auditor-hosted = "mcp_seo_auditor.hosted:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
