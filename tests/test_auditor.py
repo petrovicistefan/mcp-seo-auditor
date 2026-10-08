@@ -6,7 +6,10 @@ import unittest
 from unittest.mock import patch
 from mcp_seo_auditor.audit import audit_html
 from mcp_seo_auditor.network import public_addresses, validate_url
-from mcp_seo_auditor.server import dispatch, crawl_site, invoke
+from mcp_seo_auditor.server import dispatch, crawl_site, invoke, Session
+
+INIT = dict(jsonrpc='2.0',id=0,method='initialize',params={'protocolVersion':'2025-06-18','capabilities':{},'clientInfo':{'name':'test','version':'1'}})
+READY = dict(jsonrpc='2.0',method='notifications/initialized')
 
 GOOD = '''<html lang="en"><head><title>Example business and services</title><meta name="description" content="Useful business description"><meta name="viewport" content="width=device-width"><link rel="canonical" href="https://example.com/"></head><body><h1>Our <em>services</em></h1><img alt=""><a href="/contact">Contact</a><script type="application/ld+json">{"@type":"Organization"}</script></body></html>'''
 
@@ -52,24 +55,43 @@ class AuditTests(unittest.TestCase):
     def test_node_wrapper(self):
         from pathlib import Path
         wrapper = Path(__file__).resolve().parents[1] / 'bin/mcp-seo-auditor.mjs'
-        message = json.dumps({'jsonrpc':'2.0','id':7,'method':'tools/list'})+'\n'
+        message = '\n'.join(map(json.dumps,[INIT,READY,{'jsonrpc':'2.0','id':7,'method':'tools/list'}]))+'\n'
         p = subprocess.run(['node',str(wrapper)],input=message,text=True,capture_output=True,check=True)
-        self.assertEqual(json.loads(p.stdout)['id'],7)
+        self.assertEqual(json.loads(p.stdout.splitlines()[-1])['id'],7)
 
     def test_validation(self):
         for value in (0,11,True,'5'):
             with self.assertRaises(ValueError): invoke('crawl_site',{'url':'https://example.com','max_pages':value})
         with self.assertRaises(ValueError): invoke('audit_html',{'html':'','unexpected':True})
     def test_protocol(self):
-        r = dispatch({'jsonrpc':'2.0','id':1,'method':'initialize','params':{'protocolVersion':'2025-06-18'}})
-        self.assertEqual(r['result']['protocolVersion'],'2025-06-18')
-        self.assertIsNone(dispatch({'jsonrpc':'2.0','method':'notifications/initialized'}))
-        r = dispatch({'jsonrpc':'2.0','id':2,'method':'tools/call','params':{'name':'unknown'}})
-        self.assertTrue(r['result']['isError'])
+        session = Session()
+        call = dict(jsonrpc='2.0',id=1,method='tools/list')
+        self.assertEqual(session.dispatch(call)['error']['code'],-32002)
+        self.assertEqual(session.dispatch(INIT)['result']['protocolVersion'],'2025-06-18')
+        self.assertEqual(session.dispatch(call)['error']['code'],-32002)
+        self.assertIsNone(session.dispatch(READY))
+        self.assertEqual(len(session.dispatch(call)['result']['tools']),3)
+        self.assertIn('error',session.dispatch(INIT))
+
+    def test_invalid_requests_recover(self):
+        session = Session()
+        for value in (None,True,[],{},1.5):
+            r = session.dispatch(dict(jsonrpc='2.0',id=value,method='ping'))
+            self.assertEqual(r['error']['code'],-32600)
+        malformed = dict(INIT,params={'protocolVersion':'2025-06-18'})
+        self.assertEqual(session.dispatch(malformed)['error']['code'],-32602)
+        self.assertEqual(session.phase,'new')
+        session.dispatch(INIT); session.dispatch(READY)
+        for params in ({'name':[]},{'name':'unknown'},{'name':'audit_html','arguments':[]}):
+            self.assertEqual(session.dispatch(dict(jsonrpc='2.0',id=2,method='tools/call',params=params))['error']['code'],-32602)
+        bad = session.dispatch(dict(jsonrpc='2.0',id=3,method='tools/call',params={'name':'audit_html','arguments':{'html':5}}))
+        self.assertTrue(bad['result']['isError'])
+        self.assertIn('result',session.dispatch(dict(jsonrpc='2.0',id=4,method='tools/list')))
+
     def test_stdio(self):
-        messages = [dict(jsonrpc='2.0',id=1,method='tools/list'),dict(jsonrpc='2.0',id=2,method='tools/call',params={'name':'audit_html','arguments':{'html':GOOD}})]
+        messages = [INIT, READY, dict(jsonrpc='2.0',id=1,method='tools/list'),dict(jsonrpc='2.0',id=2,method='tools/call',params={'name':'audit_html','arguments':{'html':GOOD}})]
         p = subprocess.run([sys.executable,'-m','mcp_seo_auditor.server'],input='\n'.join(map(json.dumps,messages))+'\n',text=True,capture_output=True,check=True)
-        responses = list(map(json.loads,p.stdout.splitlines()))
+        responses = list(map(json.loads,p.stdout.splitlines()))[1:]
         self.assertEqual(len(responses[0]['result']['tools']),3)
         self.assertEqual(responses[1]['result']['structuredContent']['score'],100)
     def test_crawl_duplicates_and_limit(self):
