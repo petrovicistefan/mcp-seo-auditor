@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcp-seo-auditor"
+version = "0.1.0"
+description = "Local, read-only SEO auditing tools for AI agents over MCP stdio"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Stefan Petrovici"}]
+readme = "README.md"
+dependencies = []
+
+[project.scripts]
+mcp-seo-auditor = "mcp_seo_auditor.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
