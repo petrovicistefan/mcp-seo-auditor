@@ -2,6 +2,7 @@
   "name": "mcp-seo-auditor",
   "version": "0.1.0",
   "description": "Read-only static SEO audits and bounded crawling for AI agents over MCP",
+  "mcpName": "io.github.petrovicistefan/mcp-seo-auditor",
   "type": "module",
   "bin": {
     "mcp-seo-auditor": "bin/mcp-seo-auditor.mjs"
@@ -29,7 +30,13 @@
     "seo",
     "audit",
     "ai",
-    "claude"
+    "claude",
+    "model-context-protocol",
+    "mcp-server",
+    "ai-agents",
+    "cursor",
+    "codex",
+    "copilot"
   ],
   "homepage": "https://github.com/petrovicistefan/mcp-seo-auditor#readme",
   "bugs": {

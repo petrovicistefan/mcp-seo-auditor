@@ -3,8 +3,73 @@
 Read-only SEO tools for Claude Code, Cursor and other MCP clients. Audits run
 locally. No API keys, telemetry, AI-provider costs or runtime dependencies.
 
-**MVP 0.1.0 — not yet published to npm or PyPI.** Node wrapper requires
+**MVP 0.1.0.** Node wrapper requires
 Python 3.11+ (`python3`, or set `MCP_SEO_PYTHON` to an absolute executable path).
+
+## Install in your AI client
+
+Requires Python 3.11+ on `PATH` in addition to Node.js. Works with any MCP client over stdio; no account or API key needed for the local server.
+
+**Claude Code**
+
+```sh
+claude mcp add seo-auditor -- npx -y mcp-seo-auditor
+```
+
+**Codex CLI**
+
+```sh
+codex mcp add seo-auditor -- npx -y mcp-seo-auditor
+```
+
+**Claude Desktop, Cursor, Windsurf, Cline, Gemini CLI** — add to the client's MCP config (`claude_desktop_config.json`, `~/.cursor/mcp.json`, `~/.codeium/windsurf/mcp_config.json`, Cline MCP settings, `~/.gemini/settings.json`):
+
+```json
+{
+  "mcpServers": {
+    "seo-auditor": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-seo-auditor"
+      ]
+    }
+  }
+}
+```
+
+**VS Code / GitHub Copilot** — `.vscode/mcp.json`:
+
+```json
+{
+  "servers": {
+    "seo-auditor": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-seo-auditor"
+      ]
+    }
+  }
+}
+```
+
+**Zed** — `settings.json`:
+
+```json
+{
+  "context_servers": {
+    "seo-auditor": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-seo-auditor"
+      ]
+    }
+  }
+}
+```
 
 ## Run from a checkout
 

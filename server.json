@@ -1,0 +1,23 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.petrovicistefan/mcp-seo-auditor",
+  "title": "MCP SEO Auditor",
+  "description": "Read-only static SEO audits and bounded crawling for AI agents.",
+  "websiteUrl": "https://github.com/petrovicistefan/mcp-seo-auditor#readme",
+  "repository": {
+    "url": "https://github.com/petrovicistefan/mcp-seo-auditor",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "mcp-seo-auditor",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
