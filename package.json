@@ -30,5 +30,10 @@
     "audit",
     "ai",
     "claude"
-  ]
+  ],
+  "homepage": "https://github.com/petrovicistefan/mcp-seo-auditor#readme",
+  "bugs": {
+    "url": "https://github.com/petrovicistefan/mcp-seo-auditor/issues"
+  },
+  "author": "Stefan Petrovici"
 }
