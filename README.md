@@ -208,3 +208,11 @@ This is a partial SEO-01 remediation, not closure of the entire item:
 official SDK client interoperability and crawl cancellation remain unverified.
 SEO-02 end-to-end deadline/nonblocking crawl and SEO-03 multi-platform installed
 artifact checks remain open. No compatibility claim for stateless 2026 is made.
+
+---
+
+## ⭐ Support this project
+
+**Found this MCP useful? [Star this repository](https://github.com/petrovicistefan/mcp-seo-auditor)!**
+
+A GitHub star helps other developers discover the project and lets you save it for later. Thanks for supporting open source!
