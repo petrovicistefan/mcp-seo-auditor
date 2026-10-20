@@ -341,5 +341,54 @@
         "publishedAt": "2026-10-19T11:10:15Z"
       }
     }
+  },
+  {
+    "date": "2026-10-20",
+    "npm": {
+      "downloads24h": 9,
+      "downloads7d": 34,
+      "version": "0.1.2",
+      "publishedAt": "2026-10-19T11:09:43.328Z"
+    },
+    "github": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0,
+      "openPullRequests": 0,
+      "contributors": 4,
+      "contributorsMayBeTruncated": false,
+      "recentCommits": [
+        {
+          "sha": "1a2a69fc51b015eb79b2aaee4f545d1612d09778",
+          "date": "2026-10-19T14:38:49Z",
+          "message": "chore(metrics): record daily adoption snapshot"
+        },
+        {
+          "sha": "37906ae236db2a318d19d1d3dec44fd25aa855c0",
+          "date": "2026-10-19T11:05:40Z",
+          "message": "Merge pull request #1 from petrovicistefan/cursor/readme-rewrite-0.1.2-b613"
+        },
+        {
+          "sha": "36e0a95139a5d388de23906f74a276294f4ba82d",
+          "date": "2026-10-19T11:02:27Z",
+          "message": "chore: bump to 0.1.2, rewrite README for discoverability"
+        },
+        {
+          "sha": "7718df411ed7df33e5dae34d5850106640b7d130",
+          "date": "2026-10-18T12:02:36Z",
+          "message": "chore(metrics): record daily adoption snapshot"
+        },
+        {
+          "sha": "080151761b25794b90dec60b1eca6e1fcdfb7535",
+          "date": "2026-10-17T11:34:57Z",
+          "message": "chore(metrics): record daily adoption snapshot"
+        }
+      ],
+      "latestRelease": {
+        "tag": "v0.1.2",
+        "publishedAt": "2026-10-19T11:10:15Z"
+      }
+    }
   }
 ]
