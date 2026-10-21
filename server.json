@@ -8,22 +8,22 @@
     "url": "https://github.com/petrovicistefan/mcp-seo-auditor",
     "source": "github"
   },
-  "version": "0.1.3",
+  "version": "0.1.4",
   "packages": [
     {
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "mcp-seo-auditor",
-      "version": "0.1.3",
+      "version": "0.1.4",
       "transport": {
         "type": "stdio"
       }
     },
     {
       "registryType": "pypi",
-      "registryBaseUrl": "https://pypi.org/pypi",
+      "registryBaseUrl": "https://pypi.org",
       "identifier": "mcp-seo-auditor",
-      "version": "0.1.3",
+      "version": "0.1.4",
       "transport": {
         "type": "stdio"
       }
