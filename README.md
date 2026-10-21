@@ -70,7 +70,7 @@ Add to `claude_desktop_config.json`:
 
 ### VS Code
 
-Use the [MCP install link](https://insiders.vscode.dev/redirect/mcp/install?id=io.github.petrovicistefan%2Fmcp-seo-auditor&origin=github), or add to `.vscode/mcp.json`:
+Use the [MCP install link](https://insiders.vscode.dev/redirect/mcp/install?name=mcp-seo-auditor&config=%7B%22type%22%3A%22stdio%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22mcp-seo-auditor%22%5D%7D), or add to `.vscode/mcp.json`:
 
 ```json
 {
