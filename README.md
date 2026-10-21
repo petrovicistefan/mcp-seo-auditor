@@ -20,7 +20,13 @@
 
 ### Cursor
 
-[![Add to Cursor](https://img.shields.io/badge/Add%20to-Cursor-blue?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMiAyMkgyMkwxMiAyWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+)](https://cursor.com/mcp/add?config=eyJtY3BTZXJ2ZXJzIjp7Im1jcC1zZW8tYXVkaXRvciI6eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIm1jcC1zZW8tYXVkaXRvciJdfX19Cg==)
+[![Add to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=mcp-seo-auditor&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIm1jcC1zZW8tYXVkaXRvciJdfQo=)
+
+Or use the deeplink directly:
+
+```
+cursor://anysphere.cursor-deeplink/mcp/install?name=mcp-seo-auditor&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIm1jcC1zZW8tYXVkaXRvciJdfQo=
+```
 
 Or add manually to `~/.cursor/mcp.json`:
 
