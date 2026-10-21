@@ -1,0 +1,47 @@
+name: Publish to PyPI
+
+# Push a tag like v0.1.1 (after bumping version in package.json, pyproject.toml, AND server.json)
+# to publish to PyPI. Uses Trusted Publishing (OIDC), so no token is stored.
+#
+# ONE-TIME SETUP REQUIRED:
+# 1. Go to https://pypi.org/manage/account/publishing/
+# 2. Add this repository as a trusted publisher:
+#    - PyPI Project Name: mcp-seo-auditor
+#    - Owner: petrovicistefan
+#    - Repository name: mcp-seo-auditor
+#    - Workflow name: publish-pypi.yml
+#    - Environment name: (leave blank)
+
+on:
+  push:
+    tags: ["v*.*.*"]
+
+jobs:
+  publish-pypi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      
+      - name: Install build dependencies
+        run: pip install build
+      
+      - name: Build package
+        run: python -m build
+      
+      - name: Verify version matches tag
+        run: |
+          p=$(python -c "import tomllib; print(tomllib.load(open('pyproject.toml', 'rb'))['project']['version'])")
+          test "v$p" = "$GITHUB_REF_NAME" || { echo "version mismatch: tag $GITHUB_REF_NAME pyproject.toml $p"; exit 1; }
+      
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          skip-existing: true

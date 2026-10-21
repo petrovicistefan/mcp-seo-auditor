@@ -1,7 +1,10 @@
+<!-- mcp-name: io.github.petrovicistefan/mcp-seo-auditor -->
+
 # MCP SEO Auditor
 
 **Free on-page SEO audits from Claude Code or Cursor** — find broken titles, missing meta descriptions, canonical issues, robots conflicts, and JSON-LD errors before your pages go live. Fully local, no API keys.
 
+[![Glama](https://glama.ai/mcp/servers/petrovicistefan/mcp-seo-auditor/badge)](https://glama.ai/mcp/servers/petrovicistefan/mcp-seo-auditor)
 [![npm version](https://img.shields.io/npm/v/mcp-seo-auditor?color=blue)](https://www.npmjs.com/package/mcp-seo-auditor)
 [![npm downloads](https://img.shields.io/npm/dm/mcp-seo-auditor)](https://www.npmjs.com/package/mcp-seo-auditor)
 [![CI](https://img.shields.io/github/actions/workflow/status/petrovicistefan/mcp-seo-auditor/ci.yml?branch=main)](https://github.com/petrovicistefan/mcp-seo-auditor/actions)
@@ -11,27 +14,20 @@
 
 ---
 
-## Quick Start
+## Quick Install
 
-**Claude Code**
+**Requirements:** Python 3.11+ and Node.js 18+
 
-```sh
-claude mcp add seo-auditor -- npx -y mcp-seo-auditor
-```
+### Cursor
 
-**Other MCP clients** (Cursor, Claude Desktop, Windsurf, Cline, VS Code, Zed)
+[![Add to Cursor](https://img.shields.io/badge/Add%20to-Cursor-blue?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMiAyMkgyMkwxMiAyWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+)](https://cursor.com/mcp/add?config=eyJtY3BTZXJ2ZXJzIjp7Im1jcC1zZW8tYXVkaXRvciI6eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIm1jcC1zZW8tYXVkaXRvciJdfX19Cg==)
 
-<details>
-<summary>Click to expand client-specific configs</summary>
-
-### Claude Desktop / Cursor
-
-Add to `claude_desktop_config.json` or `~/.cursor/mcp.json`:
+Or add manually to `~/.cursor/mcp.json`:
 
 ```json
 {
   "mcpServers": {
-    "seo-auditor": {
+    "mcp-seo-auditor": {
       "command": "npx",
       "args": ["-y", "mcp-seo-auditor"]
     }
@@ -39,21 +35,82 @@ Add to `claude_desktop_config.json` or `~/.cursor/mcp.json`:
 }
 ```
 
-### Codex CLI
+### Claude Code
 
 ```sh
-codex mcp add seo-auditor -- npx -y mcp-seo-auditor
+claude mcp add mcp-seo-auditor -- npx -y mcp-seo-auditor
 ```
 
-### VS Code / GitHub Copilot
+If this server is on [Claude MCP Marketplace](https://github.com/petrovicistefan/mcp-marketplace):
 
-Add to `.vscode/mcp.json`:
+```sh
+/plugin marketplace add petrovicistefan/mcp-marketplace
+```
+
+### Claude Desktop
+
+Add to `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "mcp-seo-auditor": {
+      "command": "npx",
+      "args": ["-y", "mcp-seo-auditor"]
+    }
+  }
+}
+```
+
+### VS Code
+
+Use the [MCP install link](https://insiders.vscode.dev/redirect/mcp/install?id=io.github.petrovicistefan%2Fmcp-seo-auditor&origin=github), or add to `.vscode/mcp.json`:
 
 ```json
 {
   "servers": {
-    "seo-auditor": {
+    "mcp-seo-auditor": {
       "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "mcp-seo-auditor"]
+    }
+  }
+}
+```
+
+### npx (any MCP client)
+
+```sh
+npx -y mcp-seo-auditor
+```
+
+### uvx (PyPI, coming soon)
+
+```sh
+uvx mcp-seo-auditor
+```
+
+*PyPI package not yet published. See [PyPI Publishing](#pypi-publishing) below.*
+
+---
+
+<details>
+<summary><strong>Other MCP clients</strong> (Windsurf, Cline, Zed, Gemini CLI, Codex CLI)</summary>
+
+### Codex CLI
+
+```sh
+codex mcp add mcp-seo-auditor -- npx -y mcp-seo-auditor
+```
+
+### Windsurf
+
+Add to `~/.codeium/windsurf/mcp_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "mcp-seo-auditor": {
       "command": "npx",
       "args": ["-y", "mcp-seo-auditor"]
     }
@@ -68,22 +125,7 @@ Add to `settings.json`:
 ```json
 {
   "context_servers": {
-    "seo-auditor": {
-      "command": "npx",
-      "args": ["-y", "mcp-seo-auditor"]
-    }
-  }
-}
-```
-
-### Windsurf
-
-Add to `~/.codeium/windsurf/mcp_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "seo-auditor": {
+    "mcp-seo-auditor": {
       "command": "npx",
       "args": ["-y", "mcp-seo-auditor"]
     }
@@ -98,7 +140,7 @@ Add to `~/.gemini/settings.json`:
 ```json
 {
   "mcpServers": {
-    "seo-auditor": {
+    "mcp-seo-auditor": {
       "command": "npx",
       "args": ["-y", "mcp-seo-auditor"]
     }
@@ -126,15 +168,15 @@ Catch SEO issues **before you deploy** by asking your AI coding assistant to aud
 
 Unlike hosted SEO tools that require API keys, cloud accounts, and monthly fees, MCP SEO Auditor runs **entirely on your machine**. No data leaves your computer unless you explicitly crawl a public URL.
 
-## Features
+## Tools
 
 MCP SEO Auditor exposes **3 MCP tools** your AI agent can call:
 
-| Tool | What It Does | Network Access |
-|------|--------------|----------------|
-| **`audit_html`** | Audit static HTML without network access — perfect for pre-deployment checks | ❌ No |
-| **`audit_url`** | Fetch and audit a public page with HTTP status, redirects, and timing | ✅ Yes (respects robots.txt) |
-| **`crawl_site`** | Crawl up to 10 same-origin pages, detect duplicate titles/descriptions, prioritize fixes | ✅ Yes (respects robots.txt) |
+| Tool | Description | Inputs | Network |
+|------|-------------|--------|---------|
+| **`audit_html`** | Audit supplied static HTML without network access. Returns evidence and prioritized recommendations. | `html` (string, max 2 MB), `url` (string, optional base URL) | ❌ No |
+| **`audit_url`** | Fetch a public page and audit static SEO. Respects robots.txt; blocks private addresses. | `url` (string, required) | ✅ Yes |
+| **`crawl_site`** | Crawl up to 10 pages on the exact same origin, respecting robots.txt. Detect duplicate titles and descriptions. | `url` (string, required), `max_pages` (integer, 1–10, default 5) | ✅ Yes |
 
 ### What Gets Checked
 
@@ -284,6 +326,18 @@ mcp-seo-auditor
 ```
 
 Build-time setuptools is needed; runtime uses only stdlib.
+
+## PyPI Publishing
+
+This package is configured for PyPI Trusted Publishing (OIDC) but not yet published. The maintainer must complete a one-time setup at https://pypi.org/manage/account/publishing/:
+
+- **PyPI Project Name**: `mcp-seo-auditor`
+- **Owner**: `petrovicistefan`
+- **Repository name**: `mcp-seo-auditor`
+- **Workflow name**: `publish-pypi.yml`
+- **Environment name**: (leave blank)
+
+After setup, pushing a version tag (e.g., `v0.1.3`) will automatically publish to PyPI via the `.github/workflows/publish-pypi.yml` workflow.
 
 ## Tools Reference
 
@@ -475,7 +529,7 @@ Yes. The server implements the legacy MCP lifecycle (initialize → notification
 
 ## License
 
-MIT License. See [LICENSE](LICENSE) for details.
+MIT License — free to use, modify, and distribute. See [LICENSE](LICENSE) for full terms.
 
 ---
 
