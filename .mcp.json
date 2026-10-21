@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "mcp-seo-auditor": {
+      "command": "npx",
+      "args": ["-y", "mcp-seo-auditor"]
+    }
+  }
+}

@@ -7,7 +7,7 @@ name = "mcp-seo-auditor"
 version = "0.1.2"
 description = "Local, read-only SEO auditing tools for AI agents over MCP stdio"
 requires-python = ">=3.11"
-license = {text = "MIT"}
+license = "MIT"
 authors = [{name = "Stefan Petrovici"}]
 readme = "README.md"
 dependencies = []

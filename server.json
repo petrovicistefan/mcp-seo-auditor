@@ -18,6 +18,15 @@
       "transport": {
         "type": "stdio"
       }
+    },
+    {
+      "registryType": "pypi",
+      "registryBaseUrl": "https://pypi.org/pypi",
+      "identifier": "mcp-seo-auditor",
+      "version": "0.1.2",
+      "transport": {
+        "type": "stdio"
+      }
     }
   ]
 }
