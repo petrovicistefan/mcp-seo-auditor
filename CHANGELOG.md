@@ -1,8 +1,9 @@
 # Changelog
 
-## Unreleased
+## 0.1.5 (2026-11-17)
 
-- Fix `serverInfo.version` to read from package `__version__` (was stuck at 0.1.2 while the package is 0.1.4)
+- Fix `serverInfo.version` to read from package `__version__` (was stuck at 0.1.2 while the package was 0.1.4)
+
 
 ## 0.1.2 (2026-10-19)
 
