@@ -90,13 +90,13 @@ Use the [MCP install link](https://insiders.vscode.dev/redirect/mcp/install?name
 npx -y mcp-seo-auditor
 ```
 
-### uvx (PyPI, coming soon)
+### uvx (PyPI)
 
 ```sh
 uvx mcp-seo-auditor
 ```
 
-*PyPI package not yet published. See [PyPI Publishing](#pypi-publishing) below.*
+Needs only Python 3.11+ and [uv](https://docs.astral.sh/uv/); no Node.js required.
 
 ---
 
@@ -333,19 +333,11 @@ mcp-seo-auditor
 
 Build-time setuptools is needed; runtime uses only stdlib.
 
-## PyPI Publishing
+## PyPI Pub## PyPI Publishing
 
-This package is configured for PyPI Trusted Publishing (OIDC) but not yet published. The maintainer must complete a one-time setup at https://pypi.org/manage/account/publishing/:
+The package is published on [PyPI](https://pypi.org/project/mcp-seo-auditor/) through Trusted Publishing (OIDC). Pushing a version tag (for example `v0.1.5`) publishes it to PyPI via `.github/workflows/publish-pypi.yml`, and to npm and the MCP Registry via `.github/workflows/release.yml`. No tokens are stored in the repository.
 
-- **PyPI Project Name**: `mcp-seo-auditor`
-- **Owner**: `petrovicistefan`
-- **Repository name**: `mcp-seo-auditor`
-- **Workflow name**: `publish-pypi.yml`
-- **Environment name**: (leave blank)
-
-After setup, pushing a version tag (e.g., `v0.1.3`) will automatically publish to PyPI via the `.github/workflows/publish-pypi.yml` workflow.
-
-## Tools Reference
+ference
 
 ### `audit_html`
 
