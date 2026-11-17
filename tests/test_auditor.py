@@ -71,7 +71,7 @@ class AuditTests(unittest.TestCase):
         init_result = session.dispatch(INIT)['result']
         self.assertEqual(init_result['protocolVersion'],'2025-06-18')
         self.assertEqual(init_result['serverInfo']['version'], __version__)
-        self.assertEqual(init_result['serverInfo']['version'], '0.1.4')
+        self.assertEqual(init_result['serverInfo']['version'], '0.1.5')
         self.assertEqual(session.dispatch(call)['error']['code'],-32002)
         self.assertIsNone(session.dispatch(READY))
         self.assertEqual(len(session.dispatch(call)['result']['tools']),3)
