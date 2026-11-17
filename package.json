@@ -15,7 +15,10 @@
     "pyproject.toml"
   ],
   "scripts": {
-    "test": "PYTHONPATH=src python3 -m unittest discover -s tests -v"
+    "test": "PYTHONPATH=src python3 -m unittest discover -s tests -v",
+    "check:rules": "node scripts/check-rules.mjs",
+    "check": "npm run check:rules",
+    "prepublishOnly": "npm run check:rules && npm test"
   },
   "engines": {
     "node": ">=18"
