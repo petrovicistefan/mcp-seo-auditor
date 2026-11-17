@@ -4,6 +4,7 @@ import subprocess
 import sys
 import unittest
 from unittest.mock import patch
+from mcp_seo_auditor import __version__
 from mcp_seo_auditor.audit import audit_html
 from mcp_seo_auditor.network import public_addresses, validate_url
 from mcp_seo_auditor.server import dispatch, crawl_site, invoke, Session
@@ -67,11 +68,21 @@ class AuditTests(unittest.TestCase):
         session = Session()
         call = dict(jsonrpc='2.0',id=1,method='tools/list')
         self.assertEqual(session.dispatch(call)['error']['code'],-32002)
-        self.assertEqual(session.dispatch(INIT)['result']['protocolVersion'],'2025-06-18')
+        init_result = session.dispatch(INIT)['result']
+        self.assertEqual(init_result['protocolVersion'],'2025-06-18')
+        self.assertEqual(init_result['serverInfo']['version'], __version__)
+        self.assertEqual(init_result['serverInfo']['version'], '0.1.4')
         self.assertEqual(session.dispatch(call)['error']['code'],-32002)
         self.assertIsNone(session.dispatch(READY))
         self.assertEqual(len(session.dispatch(call)['result']['tools']),3)
         self.assertIn('error',session.dispatch(INIT))
+
+    def test_server_info_version_matches_package(self):
+        """Regression: serverInfo.version must track package __version__, not a stale literal."""
+        session = Session()
+        version = session.dispatch(INIT)['result']['serverInfo']['version']
+        self.assertEqual(version, __version__)
+        self.assertNotEqual(version, '0.1.2')
 
     def test_invalid_requests_recover(self):
         session = Session()
