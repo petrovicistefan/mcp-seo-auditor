@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Fix `serverInfo.version` to read from package `__version__` (was stuck at 0.1.2 while the package is 0.1.4)
+
 ## 0.1.2 (2026-10-19)
 
 - Documentation-only patch release: README rewrite to improve GitHub discoverability, conversions and stars
