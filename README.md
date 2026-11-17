@@ -2,7 +2,9 @@
 
 # MCP SEO Auditor
 
-**Free on-page SEO audits from Claude Code or Cursor** — find broken titles, missing meta descriptions, canonical issues, robots conflicts, and JSON-LD errors before your pages go live. Fully local, no API keys.
+**Free MCP server for on-page SEO audits from Claude Code or Cursor** — find broken titles, missing meta descriptions, canonical issues, robots conflicts, and JSON-LD errors before your pages go live. Fully local, no API keys.
+
+Three tools — `audit_html`, `audit_url` and `crawl_site` — let your AI agent run a technical SEO audit on local HTML, a public URL, or a bounded same-origin crawl (up to 10 pages, robots.txt-aware), returning prioritized findings with evidence.
 
 [![Glama](https://glama.ai/mcp/servers/petrovicistefan/mcp-seo-auditor/badge)](https://glama.ai/mcp/servers/petrovicistefan/mcp-seo-auditor)
 [![npm version](https://img.shields.io/npm/v/mcp-seo-auditor?color=blue)](https://www.npmjs.com/package/mcp-seo-auditor)
@@ -333,11 +335,11 @@ mcp-seo-auditor
 
 Build-time setuptools is needed; runtime uses only stdlib.
 
-## PyPI Pub## PyPI Publishing
+## PyPI Publishing
 
 The package is published on [PyPI](https://pypi.org/project/mcp-seo-auditor/) through Trusted Publishing (OIDC). Pushing a version tag (for example `v0.1.5`) publishes it to PyPI via `.github/workflows/publish-pypi.yml`, and to npm and the MCP Registry via `.github/workflows/release.yml`. No tokens are stored in the repository.
 
-ference
+## Tools Reference
 
 ### `audit_html`
 

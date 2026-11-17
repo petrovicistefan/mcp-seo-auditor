@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "mcp-seo-auditor"
 version = "0.1.5"
-description = "Local, read-only SEO auditing tools for AI agents over MCP stdio"
+description = "MCP server for on-page SEO audits: titles, meta descriptions, canonicals, robots and JSON-LD, with bounded crawling. Local, read-only, stdio."
 requires-python = ">=3.11"
 license = "MIT"
 authors = [{name = "Stefan Petrovici"}]
