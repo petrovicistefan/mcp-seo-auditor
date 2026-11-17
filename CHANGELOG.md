@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- README: PyPI package is published; document `uvx mcp-seo-auditor` and the tag-driven release workflows
 - Add AGENTS.md, docs/PRODUCT.md, and check:rules / prepublishOnly scripts
 
 ## 0.1.5 (2026-11-17)
