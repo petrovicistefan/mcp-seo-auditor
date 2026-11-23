@@ -1762,5 +1762,54 @@
         "publishedAt": "2026-10-21T09:44:54Z"
       }
     }
+  },
+  {
+    "date": "2026-11-23",
+    "npm": {
+      "downloads24h": 8,
+      "downloads7d": 259,
+      "version": "0.1.5",
+      "publishedAt": "2026-11-17T21:26:47.875Z"
+    },
+    "github": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0,
+      "openPullRequests": 0,
+      "contributors": 2,
+      "contributorsMayBeTruncated": false,
+      "recentCommits": [
+        {
+          "sha": "c15c0054fbf414baf54d0e7ecc1b93c27102d1a2",
+          "date": "2026-11-17T23:33:46Z",
+          "message": "docs: strengthen discovery SEO (package metadata, README intro, registry description)"
+        },
+        {
+          "sha": "f0d761cb8a16ccc70f522484c44432ec256300c3",
+          "date": "2026-11-17T21:33:55Z",
+          "message": "Merge pull request #6 from petrovicistefan/docs/pypi-published"
+        },
+        {
+          "sha": "01935a31215e4d0e58741d2356e67cb7a9639893",
+          "date": "2026-11-17T21:33:16Z",
+          "message": "docs: PyPI package is published; document uvx install"
+        },
+        {
+          "sha": "803d9e0e90694ed7d4f01231e6dffb7840e84b33",
+          "date": "2026-11-17T21:00:55Z",
+          "message": "Merge pull request #5 from petrovicistefan/chore/agents-and-check-rules"
+        },
+        {
+          "sha": "d9fc9b8e152d77fb308c1aa4dea87a80a511234f",
+          "date": "2026-11-17T21:00:48Z",
+          "message": "chore: add AGENTS.md, PRODUCT.md and check:rules"
+        }
+      ],
+      "latestRelease": {
+        "tag": "v0.1.5",
+        "publishedAt": "2026-11-17T21:23:11Z"
+      }
+    }
   }
 ]
